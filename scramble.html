@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Scramble</title>
+</head>
+<body>
+    <h1>A JavaScript Word Scramble Game</h1>
+
+    <script>
+        var WORDS     = ["booger", "apple", "hackbright", "mango"];
+        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+
+        var playing = true;
+
+        function getRandomInt(max) {
+              return Math.floor(Math.random() * max); //The maximum is exclusive and the minimum is inclusive
+            }
+
+        function scrambleWords(string) {
+
+            var a_list = [];
+            var b_list = [];
+
+            var newString = "";
+
+            for (var i = 0; i < (string.length); i++) {
+                a_list.push(string[i]);
+            }
+
+            for (var j = 0; j < a_list.length; j++) {
+
+                letter = a_list.pop(getRandomInt(a_list.length));
+                b_list.push(letter);
+            }
+
+            console.log(b_list, a_list);
+            // for (var i = 0; i < (string.length); i++) {
+            //     console.log(listOfChar[i]);
+            //     newString += (listOfChar.pop());
+            //     console.log(newString);
+            // }
+
+
+            return newString;
+        }
+
+        while (playing) {
+            var randomInt = getRandomInt(WORDS.length);
+
+            var answer = WORDS[randomInt];
+
+            var scrambledWord = SCRAMBLED[randomInt];
+
+            var guess = prompt("Here's your scrambled word, " + scrambledWord + " guess the word!", ).toLowerCase().trim();
+
+
+
+            while (guess !== answer) {
+
+                guess = prompt("Not the right answer. Guess again! ").toLowerCase().trim();
+
+            }
+            alert("Hooray! You guessed right!");
+
+            playing = confirm("Press OK To keep playing or Cancel to quit");
+
+            // } else if (guess != answer) {
+
+
+            // }
+
+
+            // Grab a random word from the WORDS array.
+
+            // Grab the corresponding scrambled word from the SCRAMBLED array.
+
+            // Prompt the user to guess the original word when given the scrambled word.
+
+            // If the user guesses wrong, tell them they were wrong and show the right word.
+
+            // If the user guesses the correct word, congratulate them.
+
+            //
+
+            // What does confirm() return?
+            // What does setting the playing variable do?
+        }
+
+        alert("goodbye!");
+    </script>
+
+</body>
+</html>
